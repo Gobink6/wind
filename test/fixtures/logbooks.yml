@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  windmillid: MyString
+  timestamp: MyString
+  logbook: MyString
+  alaram_log: MyString
+
+two:
+  windmillid: MyString
+  timestamp: MyString
+  logbook: MyString
+  alaram_log: MyString

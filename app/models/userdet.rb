@@ -1,0 +1,2 @@
+class Userdet < ApplicationRecord
+end

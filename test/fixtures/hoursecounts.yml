@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  windmillid: MyString
+  timestamp: MyString
+  total: MyString
+  lineok: MyString
+  turbineok: MyString
+  run: MyString
+  genone: MyString
+  gentwo: MyString
+  ambient: MyString
+  line: MyString
+  yawing: MyString
+  service: MyString
+  disp: MyString
+
+two:
+  windmillid: MyString
+  timestamp: MyString
+  total: MyString
+  lineok: MyString
+  turbineok: MyString
+  run: MyString
+  genone: MyString
+  gentwo: MyString
+  ambient: MyString
+  line: MyString
+  yawing: MyString
+  service: MyString
+  disp: MyString

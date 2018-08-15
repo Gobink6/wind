@@ -1,0 +1,2 @@
+module HoursecountHelper
+end

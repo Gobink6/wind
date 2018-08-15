@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  windmill_id: MyString
+  log: MyString
+  alaram_log: MyString
+
+two:
+  windmill_id: MyString
+  log: MyString
+  alaram_log: MyString

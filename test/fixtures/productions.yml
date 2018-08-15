@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  windmill_id: MyString
+  gen0_react: MyString
+  gen1_react: MyString
+  gen2_react: MyString
+  prod_react: MyString
+  gen0_activ: MyString
+  gen1_activ: MyString
+  gen2_activ: MyString
+  prod_activ: MyString
+
+two:
+  windmill_id: MyString
+  gen0_react: MyString
+  gen1_react: MyString
+  gen2_react: MyString
+  prod_react: MyString
+  gen0_activ: MyString
+  gen1_activ: MyString
+  gen2_activ: MyString
+  prod_activ: MyString

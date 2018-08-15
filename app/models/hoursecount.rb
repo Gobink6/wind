@@ -1,0 +1,2 @@
+class Hoursecount < ApplicationRecord
+end

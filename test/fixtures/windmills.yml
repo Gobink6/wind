@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  'no': MyString
+  windformid: MyString
+  location: MyString
+
+two:
+  'no': MyString
+  windformid: MyString
+  location: MyString

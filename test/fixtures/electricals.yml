@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: MyString
+  windmillid: MyString
+  power: MyString
+  cosphi: MyString
+  frequency: MyString
+  l1v: MyString
+  l2v: MyString
+  l3v: MyString
+  l1a: MyString
+  l2a: MyString
+  l3a: MyString
+
+two:
+  data: MyString
+  windmillid: MyString
+  power: MyString
+  cosphi: MyString
+  frequency: MyString
+  l1v: MyString
+  l2v: MyString
+  l3v: MyString
+  l1a: MyString
+  l2a: MyString
+  l3a: MyString

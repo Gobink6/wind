@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  windmillid: MyString
+  ambi: MyString
+  genonetemp: MyString
+  gentwo: MyString
+  nacel: MyString
+  cntrl: MyString
+  hydr: MyString
+  gear: MyString
+  bear: MyString
+  windspeed: MyString
+
+two:
+  windmillid: MyString
+  ambi: MyString
+  genonetemp: MyString
+  gentwo: MyString
+  nacel: MyString
+  cntrl: MyString
+  hydr: MyString
+  gear: MyString
+  bear: MyString
+  windspeed: MyString

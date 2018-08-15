@@ -1,0 +1,2 @@
+class Windmill < ApplicationRecord
+end

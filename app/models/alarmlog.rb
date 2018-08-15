@@ -1,0 +1,2 @@
+class Alarmlog < ApplicationRecord
+end
