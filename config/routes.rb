@@ -28,6 +28,8 @@ post '/adusinfo' => 'userdet#reg'#user registration process
 post '/getinfo' => 'userdet#getmill'#it displays the windmillid 
 post '/getusinfo' => 'userdet#getuser'#it displays the userid
 get '/call' => 'userdet#test'
+post'/aduserinfo' => 'userdet#register'
+post '/logout'    => 'userdet#logout'
 
 #Table 5
 post '/productionreg' => 'production#pro'#production registration process

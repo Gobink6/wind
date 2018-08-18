@@ -13,7 +13,9 @@ class RegisterController < ApplicationController
 		datadb = Register.where(name: params[:name], password: params[:pass])
  
   if datadb.exists? 
-     render json:   datadb.as_json(only: [:role, :phone])
+   
+                         
+                  render json:   datadb.as_json(only: [:role, :phone])
      else
       render json: [{role: "inu"}]
 	end

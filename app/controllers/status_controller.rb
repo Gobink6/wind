@@ -11,7 +11,10 @@ class StatusController < ApplicationController
     end
     #live update
     def update
-      		wd = params[:windmillid]
+
+    	datadb = Status.where(windmillid: params[:windmillid])
+    	if datadb.present?
+      		wdid = params[:windmillid]
       		st = params[:status]
       		pw = params[:power]
       		gn = params[:gen]
@@ -20,13 +23,45 @@ class StatusController < ApplicationController
       		rt = params[:rotor]
       		pt = params[:pitch]
       	a = Status.find_by(windmillid: params[:windmillid])
-      	b = Windmill.find_by(no: params[:windmillid])
+      		b = Windmill.find_by(no: params[:windmillid])
       		b.location = st
-      		if b.save
+      	    b.save
+      	    if st == "Stop"
+      	    	@w = wdid
+      	    	puts "stop"
+      	    	userid = Userdet.where(windmill: params[:windmillid]).all
+      	    	  		bluck_token = userid.pluck(:mobile_token)
+      	    	 		bluck_id_leg = bluck_token.length
+      	    	 				n= 0
+      	    	 				 for i in 1..bluck_id_leg do 
+                                     @single_token = bluck_token[n]
 
-      	
+						require 'uri'
+						require 'net/http'
+      					url = URI("http://fcm.googleapis.com/fcm/send")
 
-     		a.windmillid = wd 
+						http = Net::HTTP.new(url.host, url.port)
+
+						request = Net::HTTP::Post.new(url)
+						request["content-type"] = 'application/json'
+						request["authorization"] = 'key=AAAAfm5FEyE:APA91bHcMrmcAKIWpLcONC1PWl0CiOq7_ZfijrUi18pLV8vQBuWtaIe1ruQq_ZfDf3acc59u5yLT2tVDqikmk4UQZtUiCgr3c76sEOs3ONeIVUXaBev1IFiWYRVhCR1bH3Sfxj8TOZU5axhER-ylmcYD5qj7vJm13A'
+						request["cache-control"] = 'no-cache'
+						request.body = "{\r\n  \"to\": \r\n    \"#{@single_token}\"\r\n  ,\r\n  \"data\": {\r\n    \"extra_information\": \"windmill\"\r\n  },\r\n  \"notification\": {\r\n    \"title\": \"Our windmill Stop!\",\r\n    \"text\": \"#{@w}\",\r\n  }\r\n}"
+
+						response = http.request(request)
+						puts response.read_body   
+                                 
+                                  n +=1
+                                  
+                                  
+                                end
+      	    	  				
+      	    	
+      	    else 
+                     @id = mill_id[0]
+      	    	puts @id
+      	    		   	
+						    end
 			a.status = st
 			a.power = pw
 			a.gen = gn
@@ -39,8 +74,14 @@ class StatusController < ApplicationController
 		else
 			puts "no"
 		end
+	
 	else
-		puts "no"
+		  reg = Status.new(hourse_params)
+		if reg.save
+      	 	render json: [{message: 'Add'}]
+      	else
+      		 render json: [{message: 'no'}]
+      	end
 	end
     end
     #get status of live data 

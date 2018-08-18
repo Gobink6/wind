@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_131923) do
+ActiveRecord::Schema.define(version: 2018_08_17_050602) do
 
   create_table "alarmlogs", force: :cascade do |t|
     t.string "windmillid"
@@ -137,6 +137,7 @@ ActiveRecord::Schema.define(version: 2018_08_14_131923) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "windfrom"
+    t.string "mobile_token"
   end
 
   create_table "users", force: :cascade do |t|
@@ -163,6 +164,7 @@ ActiveRecord::Schema.define(version: 2018_08_14_131923) do
     t.string "londitude"
     t.string "name"
     t.string "status"
+    t.string "status_one"
   end
 
 end

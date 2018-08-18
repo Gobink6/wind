@@ -1,7 +1,7 @@
 class WindmillController < ApplicationController
 	#1.	Insert a Wind Mill
 def reg
-		 user = Windmill.new(no: params[:no], windformid: params[:id], name: params[:name], latitude: params[:latitude ],londitude: params[:londitude])
+		 user = Windmill.new(no: params[:no], windformid: params[:id], name: params[:name], latitude: params[:latitude ],londitude: params[:londitude],status_one: params[:status])
     if user.save 
       render json: {massage: 'Windmill added'}
      else
