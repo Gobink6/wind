@@ -17,9 +17,9 @@ class AlarmlogController < ApplicationController
     end 
     def alarmlog_params
 	 	params.require(:windmillid)
-		params.require(:timestamp)
+		#params.require(:timestamp)
 	 	params.require(:alarmlog)
-	 	params.permit(:windmillid,:timestamp,:alarmlog)
+	 	params.permit(:windmillid,:alarmlog)
 	end	
 
 	def get
@@ -33,5 +33,10 @@ class AlarmlogController < ApplicationController
       end
 
 	end
+def demo
 
+   puts word = params[:save]
+  puts  name = word.split(' : ')
+
+end
 end

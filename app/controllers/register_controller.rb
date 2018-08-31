@@ -11,9 +11,41 @@ class RegisterController < ApplicationController
     #2.  Verify password against email id /phone number (it should detect whether it is a phone or mail and validate it)
 	def check 
 		datadb = Register.where(name: params[:name], password: params[:pass])
- 
+
   if datadb.exists? 
-   
+    token = params[:token]
+    
+ tokening = "key="+token
+ 
+   puts tokening 
+     phone_id = datadb.pluck(:phone)
+      phoneid = phone_id[0]
+      puts phoneid
+     formid = Userdet.where(usid: phoneid).all
+     
+                           mill_id = formid.pluck(:windmill)
+                           leng = mill_id.length
+                      
+                                 n = 0
+                                 for i in 1..leng do 
+                                 millid = mill_id[n]
+                                 puts millid
+                                   b = formid.find_by(windmill: millid )
+                                    b.mobile_token = tokening
+                                  if  b.save
+                                    puts "success"
+                                  else
+                                    puts "no"
+                                  end
+
+                                    n +=1
+                                  
+                                  
+                                end
+                              
+
+                               
+                              
                          
                   render json:   datadb.as_json(only: [:role, :phone])
      else

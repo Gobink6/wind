@@ -1,7 +1,7 @@
 class WindmillController < ApplicationController
 	#1.	Insert a Wind Mill
 def reg
-		 user = Windmill.new(no: params[:no], windformid: params[:id], name: params[:name], latitude: params[:latitude ],londitude: params[:londitude],status_one: params[:status])
+		 user = Windmill.new(no: params[:no], windformid: params[:id], name: params[:name], latitude: params[:latitude ],londitude: params[:londitude],status_one: params[:status],customer_name: params[:customer_name],sf_no: params[:sf_no],htfc_no: params[:htfc_no],village: params[:village])
     if user.save 
       render json: {massage: 'Windmill added'}
      else
@@ -51,4 +51,16 @@ def getlatlong
 	form = Windmill.all
 	render json: form.as_json(only: [:no, :latitude, :londitude,:location])
 	end
+
+def info
+	form = Windmill.where(no: params[:no]).first
+	if form.present?
+	render json: [form.as_json(only: [:customer_name, :sf_no, :htfc_no,:village])]	
+	else
+render json: [{message: 'not windform found'}]
+
+	end
+
+
+end
 end

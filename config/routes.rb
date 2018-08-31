@@ -23,6 +23,8 @@ post '/getlocation' => 'windmill#getlocation'#it returns the latitude and loditu
 post '/getform' => 'windmill#getform'#it returns windformid for the given id
 get '/getwindid' => 'windmill#form'#it displays all the values in the table
 get '/getlatlong' => 'windmill#getlatlong'
+post '/getmillinfo' => 'windmill#info'
+
 #Table 4
 post '/adusinfo' => 'userdet#reg'#user registration process
 post '/getinfo' => 'userdet#getmill'#it displays the windmillid 
@@ -34,18 +36,20 @@ post '/logout'    => 'userdet#logout'
 #Table 5
 post '/productionreg' => 'production#pro'#production registration process
 post  '/getid' => 'production#millid'#it returns all the value for the given id
+post'/trippro' => 'production#trip'
 
 #table sign
 post '/sign' => 'log#row'#log registration process
 post '/signup' => 'log#rj'#it returns all the value for the given id
 
 #Table 6
-post '/hourse' => 'hoursecount#reg' #Register
+post '/hoursereg' => 'hoursecount#reg' #Register
 post '/gethourse' => 'hoursecount#pro' #Get Selected windmill data data
+post '/trip' => 'hoursecount#trip'
 
 #Table 9 (Live)
-post '/status' => 'status#reg' # Register ones (No histroy)
-post '/update' => 'status#update' #Live update
+post '/update' => 'status#reg' # Register ones (No histroy)
+post '/status' => 'status#update' #Live update
 post 'statusdata' => 'status#get' #get live data
 
 #Table 10(Live)
@@ -54,17 +58,18 @@ post '/electupdate' => 'electrical#update' #update Live data
 post '/electdata'   => 'electrical#get' #Get live data
 
 #Table 11
-post '/stream' => 'stream#reg' #Register(histroy)
+post '/streamreg' => 'stream#reg' #Register(histroy)
 #post '/streamupdate' => 'stream#update' #Update live data
 post '/streamdata'   => 'stream#get' #Get selected windmill last data
 
 #Table 7
-post '/logbook'  => 'logbook#reg' # Register (history)
+post '/logreg'  => 'logbook#reg' # Register (history)
 post '/logdata'  => 'logbook#get'
 
 #Table 8
-post '/alaram' => 'alarmlog#reg'
+post '/alarmreg' => 'alarmlog#reg'
 post '/alarmdata'  => 'alarmlog#get'
+post '/demo' => 'alarmlog#demo'
 
 =begin
 get '/getallforms' => 'windform#index'

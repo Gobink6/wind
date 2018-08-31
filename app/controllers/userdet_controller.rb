@@ -12,30 +12,9 @@ class UserdetController < ApplicationController
 	def getmill
 	
  	formid = Userdet.where(usid: params[:userid]).all
- 	token = params[:token]
- 	tokening = "key="+token
- 	puts tokening 
+ 	
 if formid.present?
-		 mill_id = formid.pluck(:windmill)
-		 
-                           leng = mill_id.length
-                      
-                                 n = 0
-                                for i in 1..leng do 
-                                 millid = mill_id[n]
-                                 
-                                   b = formid.find_by(windmill: millid )
-                                    b.mobile_token = tokening
-                                  if  b.save
-                                  	puts "yes"
-                                  else
-                                  	puts "no"
-                                  end
-
-                                    n +=1
-                                  
-                                  
-                                end
+		
  render json:  formid.as_json(only: [:windmill])
 else
 render json:  [{message: 'not found'}]
@@ -117,26 +96,26 @@ puts "Done!"
 				
 				puts leng
 			end
-	end
+	end 
 	def logout
 		
 			userid = Userdet.where(usid: params[:phone]).all
-			bluk_token = userid.pluck(:windmill)
+			
+			if userid.present?
+				bluk_token = userid.pluck(:windmill)
 			phone_leg = bluk_token.length
 			n = 0
-			 for i in 1..phone_leg do  
+			 for i in 1..phone_leg do 
 			 	single_token = bluk_token[n]
 				b = userid.find_by(windmill: single_token)
 				b.mobile_token = ""
-				b.save
-			 	 n +=1
+				 b.save
+				 n +=1
 			 end
+					render json: [{message: 'suc'}]
+			else
+				render json: [{message: 'error'}]
+			end
 			
-			
-
-
-
-
-
-	end
+         end
 end

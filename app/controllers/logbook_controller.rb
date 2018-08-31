@@ -13,13 +13,13 @@
 	 	params.require(:windmillid)
 		#params.require(:timestamp)
 	 	params.require(:logbook)
-	 	params.require(:alaram_log)
-	 	params.permit(:windmillid,:logbook,:alaram_log)
+	 	#params.require(:alaram_log)
+	 	params.permit(:windmillid,:logbook)
 	end	
 
 	def get
 
-      get = Logbook.where(windmillid: params[:windmillid]).last(5).reverse
+      get = Logbook.where(windmillid: params[:windmillid]).last(10).reverse
       if get.present?
       	s = get.pluck(:created_at)
       	y = s[0].strftime("%d-%m-%Y %H:%M:%S")
